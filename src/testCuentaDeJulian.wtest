@@ -7,12 +7,12 @@ describe "cuenta de julian" {
 	
 	test "depositar" {
 		cuentaDeJulian.depositar(100)
-		assert.equals(100, cuentaDeJulian.saldo())
+		assert.equals(80, cuentaDeJulian.saldo())
 	}
 
 	test "extraer" {
 		cuentaDeJulian.depositar(100)
 		cuentaDeJulian.extraer(20)
-		assert.equals(80, cuentaDeJulian.saldo())
+		assert.equals(55, cuentaDeJulian.saldo())
 	}
 }

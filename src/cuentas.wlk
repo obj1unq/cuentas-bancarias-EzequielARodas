@@ -13,10 +13,35 @@ object cuentaDeJulian {
 	method saldo() = saldo
 	
 	method depositar(monto) {
-		// TODO
+		saldo=embargo.depositar(self,monto)
 	} 
 
 	method extraer(monto) {
-		// TODO
+		saldo = extraccion.extraer(self,monto)
+	}
+	
+
+}
+
+object embargo {
+	var porcentajeDeDescuento = 0.2
+	
+	method depositar(usuario,monto){
+		return usuario.saldo() + (monto - (monto*porcentajeDeDescuento))		
+	}
+	
+}
+
+object extraccion {
+		
+	method extraer(usuario,monto){
+		if (usuario.saldo()<0)
+			return  usuario.saldo()-monto
+		else 
+			return  usuario.saldo() - (monto + self.porcentajeFijo())
+	}
+	
+	method porcentajeFijo(){
+		return 5
 	}
 }
